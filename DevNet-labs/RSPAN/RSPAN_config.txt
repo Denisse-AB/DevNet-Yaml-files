@@ -1,0 +1,24 @@
+RSPAN
+
+conf t
+vlan 200
+name RSPAN
+remote-span
+exit
+monitor session 1 source interface gig0/1 - 2
+monitor session 1 destination interface gig3/3
+
+==============================================
+sh vlan remote-span
+
+SW2
+vlan 200
+name RSPAN
+exit
+monitor session 1 source inter gig0/1 - 2
+monitor session 1 destination remote vlan 200
+
+==============================================
+sh monitor session remote
+
+

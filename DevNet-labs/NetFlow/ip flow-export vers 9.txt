@@ -1,0 +1,19 @@
+ip flow-export vers 9
+int Gi0/1
+ip flow ingress
+ip flow egress
+exit
+ip flow-export destination 10.1.1.5 9999
+
+Verification
+- sh ip flow interface
+Generate traffic
+- ping from pc's
+- ping 10.1.1.1
+Ping from the router to pc's
+- sh ip cache flow
+Clear the cache
+-clear ip flow stats
+Export the cache to a specific server and port
+- sh ip flow export
+- ip flow-export destination 192.16810.5 9995
